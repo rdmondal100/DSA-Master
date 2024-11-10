@@ -23,6 +23,8 @@ class DoublyLinkedList {
     if (!this.head) {
       this.head = newNode
       this.tail = newNode
+      this.length++
+      return this
     }
 
 
@@ -31,7 +33,7 @@ class DoublyLinkedList {
     this.tail = newNode
 
     this.length++
-    return true
+    return this
 
   }
 

@@ -18,6 +18,8 @@ class LinkedList {
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode
+      this.length++
+      return
     }
     this.tail.next = newNode
     this.tail = newNode;
@@ -25,7 +27,7 @@ class LinkedList {
   }
 
 
-  pop(value) {
+  pop() {
     if (!this.head) {
 
       return undefined
@@ -39,15 +41,20 @@ class LinkedList {
       prev = temp
       temp = prev.next
     }
-
-    this.tail = prev
-    this.tail.next = null
-    this.length--
-
-    if (this.length === 0) {
+    if(this.head.data === this.tail.data){
       this.head = null
       this.tail = null
+    }else{
+      this.tail = prev
+      this.tail.next = null
     }
+
+
+    this.length--
+
+
+    return temp
+
   }
 
   unshif(value) {
@@ -55,9 +62,10 @@ class LinkedList {
     if (!this.head) {
       this.head = newNode
       this.tail = newNode
+    }else{
+      newNode.next = this.head
+      this.head = newNode
     }
-    newNode.next = this.head
-    this.head = newNode
 
     this.length++
     return this
@@ -107,7 +115,7 @@ class LinkedList {
 
   get(index) {
 
-    if(index<0 || index > this.length)return false
+    if(index<0 || index >= this.length)return false
 
     let target = this.head
     for (let i = 0; i <= index; i++) {
@@ -204,21 +212,22 @@ const myLinkedLIst = new LinkedList(50)
 // console.log(myLinkedLIst)
 // console.log(myLinkedLIst.push(333))
 // console.log(myLinkedLIst)
-console.log(myLinkedLIst.push(500))
-console.log(myLinkedLIst.push(444))
+// console.log(myLinkedLIst.push(500))
 console.log(myLinkedLIst)
-// console.log(myLinkedLIst.pop())
+console.log(myLinkedLIst.pop())
+console.log(myLinkedLIst)
+console.log(myLinkedLIst.push(444)) 
 // console.log(myLinkedLIst.unshif(15))
 // console.log(myLinkedLIst.shift())
 // console.log(myLinkedLIst.getFirstElement())
 // console.log(myLinkedLIst.getLastElement())
 // console.log(myLinkedLIst.get(3))
-console.log(myLinkedLIst.insert(2, 69))
+// console.log(myLinkedLIst.insert(2, 69))
 
 
-console.log(myLinkedLIst.clear())
-console.log(myLinkedLIst.size())
-console.log(myLinkedLIst.get(3))
+// console.log(myLinkedLIst.clear())
+// console.log(myLinkedLIst.size())
+// console.log(myLinkedLIst.get(3))
 
 console.log(myLinkedLIst)
 
