@@ -1,36 +1,36 @@
-class MyQueue{
-  constructor(){
-      this.pushStack = []
-      this.popStack = []
+class MyQueue {
+    constructor() {
+        this.pushStack = []
+        this.popStack = []
 
-  }
+    }
 
 
-  push(val){
-      this.pushStack.push(val)
-  }
+    push(val) {
+        this.pushStack.push(val)
+    }
 
-  pop(){
-      if(!this.popStack.length){
-          while(this.pushStack.length){
-              this.popStack.push(this.pushStack.pop())
-          }
+    pop() {
+        if (!this.popStack.length) {
+            while (this.pushStack.length) {
+                this.popStack.push(this.pushStack.pop())
+            }
 
-      }
-      return this.popStack.pop()
-  }
+        }
+        return this.popStack.pop()
+    }
 
-  peek(){
-      if(!this.popStack.length){
-          while(this.pushStack.length){
-              this.popStack.push(this.pushStack.pop())
-          }
-      }
+    peek() {
+        if (!this.popStack.length) {
+            while (this.pushStack.length) {
+                this.popStack.push(this.pushStack.pop())
+            }
+        }
 
-      return this.popStack[this.popStack.length-1]
-  }
+        return this.popStack[this.popStack.length - 1]
+    }
 
-  empty(){
-      return !this.popStack.length && !this.pushStack.length
-  }
+    empty() {
+        return !this.popStack.length && !this.pushStack.length
+    }
 }
